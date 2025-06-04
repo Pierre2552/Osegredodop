@@ -10,16 +10,54 @@
       background-color: #0d0d0d;
       color: white;
       font-family: 'Press Start 2P', monospace;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      padding: 0;
       animation: fadeIn 2s ease-in;
     }
 
+    header {
+      background-color: #1a1a1a;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 4px 10px #00000060;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffffcc;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #bb00ff;
+      border-color: #bb00ff;
+      background-color: #1f001f;
+      text-shadow: 0 0 6px #bb00ff;
+    }
+
     h1 {
-      font-size: 28px;
+      font-size: 22px;
       color: #bb00ff;
       text-shadow: 2px 2px #ffffff20;
       animation: pulse 2s infinite;
+      margin: 0;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
     }
 
     p {
@@ -41,12 +79,4 @@
 
     .glow {
       color: #fff;
-      text-shadow: 0 0 5px #bb00ff, 0 0 10px #bb00ff, 0 0 20px #bb00ff;
-    }
-  </style>
-</head>
-<body>
-  <h1 class="glow">👾 O Segredo do P 👾</h1>
-  <p>Site em construção... mas já brilhando!</p>
-</body>
-</html>
+      text-shadow: 0
