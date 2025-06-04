@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Segredo - O Segredo do P</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      background-color: #000;
+      color: #00ff88;
+      font-family: 'Press Start 2P', monospace;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .terminal {
+      background: #111;
+      border: 1px solid #00ff88;
+      padding: 30px;
+      max-width: 600px;
+      margin: 60px auto;
+      box-shadow: 0 0 20px #00ff88;
+    }
+
+    input {
+      background: black;
+      border: none;
+      border-bottom: 1px solid #00ff88;
+      color: #00ff88;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 14px;
+      padding: 8px;
+      width: 80%;
+      text-align: center;
+      outline: none;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 30px;
+      color: #bb00ff;
+      animation: reveal 1s ease-in;
+    }
+
+    .error {
+      color: red;
+      margin-top: 20px;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <p>Digite a senha para desbloquear o segredo:</p>
+    <input type="password" id="senha" placeholder="••••••••" />
+    <p id="erro" class="error"></p>
+    <div id="conteudo" class="hidden">
+      <h2>🗝️ Você descobriu o segredo!</h2>
+      <p>Parabéns, explorador. Você está mais perto da verdade...</p>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById("senha");
+    const conteudo = document.getElementById("conteudo");
+    const erro = document.getElementById("erro");
+
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        if (input.value.toLowerCase() === "poder") {
+          conteudo.style.display = "block";
+          erro.textContent = "";
+        } else {
+          erro.textContent = "❌ Acesso negado. Tente novamente.";
+          conteudo.style.display = "none";
+        }
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>
