@@ -21,6 +21,7 @@
       max-width: 600px;
       margin: 60px auto;
       box-shadow: 0 0 20px #00ff88;
+      text-align: left;
     }
 
     input {
@@ -39,11 +40,31 @@
     .error {
       color: red;
       margin-top: 20px;
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    a {
+      color: #00ff88;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="terminal">
+  <div class="terminal" id="terminal">
     <p>Digite a chave para acessar os scripts:</p>
     <input type="password" id="keyInput" placeholder="••••••••" />
     <p id="errorMsg" class="error"></p>
@@ -52,13 +73,20 @@
   <script>
     const input = document.getElementById("keyInput");
     const errorMsg = document.getElementById("errorMsg");
+    const terminal = document.getElementById("terminal");
 
     input.addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
         const key = input.value.toLowerCase().trim();
         if (key === "poder") {
-          // Redireciona para o site principal após senha correta
-          window.location.href = "https://pierre2552.github.io/Osegredodop/index.html";
+          terminal.innerHTML = `
+            <h2>Links da Página Principal:</h2>
+            <ul>
+              <li><a href="https://doritus.mmrcoss.tech/" target="_blank" rel="noopener">doritus.mmrcoss.tech</a></li>
+              <li><a href="https://redacao.mmrcoss.tech/" target="_blank" rel="noopener">redacao.mmrcoss.tech</a></li>
+              <li><a href="https://alura.mmrcoss.tech/" target="_blank" rel="noopener">alura.mmrcoss.tech</a></li>
+            </ul>
+          `;
         } else {
           errorMsg.textContent = "❌ Chave incorreta. Tente novamente.";
         }
