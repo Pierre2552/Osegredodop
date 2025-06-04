@@ -1,100 +1,36 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>👾 Ideias do Pierre👾</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+<main>
+  <h1>Bem-vindo!</h1>
+  <p>Conteúdo inicial.</p>
+</main>
 
-    body {
-      background-color: #0d0d0d;
-      color: white;
-      font-family: 'Press Start 2P', monospace;
-      margin: 0;
-      padding: 0;
-      animation: fadeIn 2s ease-in;
-    }
+<script>
+  const links = document.querySelectorAll('nav a');
+  const main = document.querySelector('main');
 
-    header {
-      background-color: #1a1a1a;
-      padding: 20px 0;
-      text-align: center;
-      box-shadow: 0 4px 10px #00000060;
-    }
+  const pages = {
+    inicio: `
+      <h1>Início</h1>
+      <p>Conteúdo da página inicial.</p>
+    `,
+    sobre: `
+      <h1>Sobre</h1>
+      <p>Informações sobre o site e a equipe.</p>
+    `,
+    script: `
+      <h1>Script</h1>
+      <p>Conteúdo relacionado a scripts e códigos.</p>
+    `,
+    contato: `
+      <h1>Contato</h1>
+      <p>Formas de entrar em contato.</p>
+    `
+  };
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #ffffffcc;
-      text-decoration: none;
-      font-size: 12px;
-      padding: 10px 16px;
-      border: 1px solid transparent;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #bb00ff;
-      border-color: #bb00ff;
-      background-color: #1f001f;
-      text-shadow: 0 0 6px #bb00ff;
-    }
-
-    h1 {
-      font-size: 22px;
-      color: #bb00ff;
-      text-shadow: 2px 2px #ffffff20;
-      animation: pulse 2s infinite;
-      margin: 0;
-    }
-
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    p {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #ffffffcc;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .glow {
-      color: #fff;
-      text-shadow: 0 0 5px #bb00ff, 0 0 10px #bb00ff, 0 0 20px #bb00ff;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1 class="glow">👾 O Segredo do P 👾</h1>
-    <nav>
-      <a href="#">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Script</a>
-      <a href="#">Contato</a>
-    </nav>
-  </header>
-  <main>
-    <p>Site em construção... mas já brilhando!</p>
-  </main>
-</body>
-</html>
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const page = link.getAttribute('data-page');
+      main.innerHTML = pages[page] || '<h1>Página não encontrada</h1>';
+    });
+  });
+</script>
