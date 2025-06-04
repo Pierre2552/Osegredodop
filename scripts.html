@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -55,4 +56,34 @@
   </style>
 </head>
 <body>
-  <div class
+  <div class="terminal">
+    <p>Digite a chave para acessar os scripts:</p>
+    <input type="password" id="keyInput" placeholder="••••••••" />
+    <p id="errorMsg" class="error"></p>
+    <div id="secretContent" class="hidden">
+      <h2>🔓 Acesso liberado!</h2>
+      <p>Bem-vindo aos scripts secretos do site. Aproveite!</p>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById("keyInput");
+    const secretContent = document.getElementById("secretContent");
+    const errorMsg = document.getElementById("errorMsg");
+
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        const key = input.value.toLowerCase().trim();
+        if (key === "poder") {  // Aqui você pode mudar a chave "poder" para o que quiser
+          secretContent.style.display = "block";
+          errorMsg.textContent = "";
+        } else {
+          errorMsg.textContent = "❌ Chave incorreta. Tente novamente.";
+          secretContent.style.display = "none";
+        }
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>
