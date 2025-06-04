@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -37,21 +36,9 @@
       outline: none;
     }
 
-    .hidden {
-      display: none;
-      margin-top: 30px;
-      color: #bb00ff;
-      animation: reveal 1s ease-in;
-    }
-
     .error {
       color: red;
       margin-top: 20px;
-    }
-
-    @keyframes reveal {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -60,26 +47,20 @@
     <p>Digite a chave para acessar os scripts:</p>
     <input type="password" id="keyInput" placeholder="••••••••" />
     <p id="errorMsg" class="error"></p>
-    <div id="secretContent" class="hidden">
-      <h2>🔓 Acesso liberado!</h2>
-      <p>Bem-vindo aos scripts secretos do site. Aproveite!</p>
-    </div>
   </div>
 
   <script>
     const input = document.getElementById("keyInput");
-    const secretContent = document.getElementById("secretContent");
     const errorMsg = document.getElementById("errorMsg");
 
     input.addEventListener("keydown", function(event) {
       if (event.key === "Enter") {
         const key = input.value.toLowerCase().trim();
-        if (key === "poder") {  // Aqui você pode mudar a chave "poder" para o que quiser
-          secretContent.style.display = "block";
-          errorMsg.textContent = "";
+        if (key === "poder") {
+          // Redireciona para o site principal após senha correta
+          window.location.href = "https://pierre2552.github.io/Osegredodop/index.html";
         } else {
           errorMsg.textContent = "❌ Chave incorreta. Tente novamente.";
-          secretContent.style.display = "none";
         }
         input.value = "";
       }
