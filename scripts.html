@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Segredo - O Segredo do P</title>
+  <title>Scripts - O Segredo do P</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -55,33 +55,4 @@
   </style>
 </head>
 <body>
-  <div class="terminal">
-    <p>Digite a senha para desbloquear o segredo:</p>
-    <input type="password" id="senha" placeholder="••••••••" />
-    <p id="erro" class="error"></p>
-    <div id="conteudo" class="hidden">
-      <h2>🗝️ Você descobriu o segredo!</h2>
-      <p>Parabéns, explorador. Você está mais perto da verdade...</p>
-    </div>
-  </div>
-
-  <script>
-    const input = document.getElementById("senha");
-    const conteudo = document.getElementById("conteudo");
-    const erro = document.getElementById("erro");
-
-    input.addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        if (input.value.toLowerCase() === "poder") {
-          conteudo.style.display = "block";
-          erro.textContent = "";
-        } else {
-          erro.textContent = "❌ Acesso negado. Tente novamente.";
-          conteudo.style.display = "none";
-        }
-        input.value = "";
-      }
-    });
-  </script>
-</body>
-</html>
+  <div class
